@@ -10,19 +10,15 @@ class CopieExamen extends AbstractDocument
     private \DateTime $dateLimite;
 
 
-    public function __construct(
-        \DateTime $dateDepot,
-        float $noteBrute,
-        bool $penaliteAppliquee,
-        \DateTime $dateLimite,
-        ?int $id = null
-    ) {
+    public function __construct(\DateTime $dateDepot, float $noteBrute, bool $penaliteAppliquee, \DateTime $dateLimite, ?int $id = null)
+    {
         parent::__construct($dateDepot, $id);
         $this->verifierNoteBrute($noteBrute);
         $this->noteBrute = $noteBrute;
         $this->penaliteAppliquee = $penaliteAppliquee;
         $this->dateLimite = $dateLimite;
     }
+
     //-----------------------------------------------------------------------------
 
     public function getNoteBrute(): float
@@ -36,7 +32,7 @@ class CopieExamen extends AbstractDocument
     }
     //-----------------------------------------------------------------------------
 
-     public function calculerNoteFinale(): float
+    public function calculerNoteFinale(): float
     {
         return $this->penaliteAppliquee ? $this->noteBrute - 2 : $this->noteBrute;
     }
@@ -45,7 +41,7 @@ class CopieExamen extends AbstractDocument
     {
         $this->noteFinale = $this->calculerNoteFinale();
     }
-    
+
     //-----------------------------------------------------------------------------
 
     private function verifierNoteBrute(float $noteBrute): void
@@ -54,13 +50,14 @@ class CopieExamen extends AbstractDocument
             throw new \InvalidArgumentException('La note doit être comprise entre 0 et 20.');
         }
     }
-    
+
     public function getNoteFinale(): float
     {
         return $this->noteFinale;
     }
 
     //-----------------------------------------------------------------------------
+    
     public function getPenaliteAppliquee(): bool
     {
         return $this->penaliteAppliquee;

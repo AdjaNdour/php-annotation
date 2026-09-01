@@ -5,6 +5,7 @@ namespace App\Entities;
 abstract class AbstractDocument
 {
     protected ?int $id;
+
     protected \DateTime $dateDepot;
 
     protected function __construct(\DateTime $dateDepot, ?int $id = null)
@@ -16,6 +17,11 @@ abstract class AbstractDocument
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
     }
 
     public function getDateDepot(): \DateTime
