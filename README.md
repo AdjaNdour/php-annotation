@@ -14,3 +14,36 @@
 ### 3. Pourquoi la branche main doit-elle rester stable ?
 
 - Parce que la branche main doit contenir une version stable et fonctionnelle de l'application. Elle représente généralement la version qui peut être déployée.
+
+### ---------------------------------------------------------------------------------------------------------------
+
+### 1.Pourquoi placer index.php dans un dossier public ?
+
+- Parce que le dossier public est le seul dossier qui doit être accessible directement depuis le navigateur.
+    Cela permet de protéger le code métier, les configurations et les informations sensibles de l'application.
+
+### 2.Pourquoi toutes les requêtes devraient-elles passer par ce fichier ?
+
+- Parce que index.php est le point d'entrée unique de l'application le front controller.
+    Il reçoit les requêtes, charge automatiquement les classes, transmet la requête au contrôleur approprié grâce au router.
+
+### 3.Quels éléments ne devraient jamais se trouver dans le dossier public ?
+
+- Les fichiers contenant le code métier
+- les informations de connexion à la base de données
+- les fichiers de configuration
+- le router
+- les dépendances
+- les données sensibles ne doivent pas y être
+
+### 4.Comment avez-vous réparti les responsabilités entre vos dossiers ?
+
+- J'ai séparé l'application en plusieurs parties :
+- Les Entities représentent les objets métier
+- les Controllers reçoivent les requêtes
+- les Services contiennent la logique métier
+- les Repositories gèrent l'accès aux données
+- les Templates/Views gèrent l'affichage
+- Core contient les classes partagées
+- routes gère la résolution des URL se trouvant dans le dossier core
+- Le dossier public contient uniquement les fichiers accessibles par le navigateur: index.php et les assets /css
