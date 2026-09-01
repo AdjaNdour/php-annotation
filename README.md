@@ -47,3 +47,17 @@
 - Core contient les classes partagées
 - routes gère la résolution des URL se trouvant dans le dossier core
 - Le dossier public contient uniquement les fichiers accessibles par le navigateur: index.php et les assets /css
+
+### Quelle relation avez-vous établie entre les deux classes ?
+
+- Nous avons établi une relation d’héritage.
+    La classe CopieExamen hérite de la classe AbstractDocument avec extends. Elle récupère les caractéristiques communes comme id et dateDepot.
+
+### Pourquoi ne peut-on pas créer directement un AbstractDocument ?
+
+- AbstractDocument est une classe abstraite.
+    Elle sert de classe de base pour les différents types de documents. Une classe abstraite ne peut pas être instanciée directement.
+
+### Pourquoi l’identifiant peut-il être absent avant la sauvegarde ?
+
+### Quel principe de conception est favorisé par la protection des propriétés ?
