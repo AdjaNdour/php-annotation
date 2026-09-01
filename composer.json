@@ -1,0 +1,16 @@
+{
+    "name": "adja/notation-universitaire",
+    "description": "projet annotation",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "AdjaNdour",
+            "email": "adjacourandour4@gmail.com"
+        }
+    ],
+    "require": {}
+}
