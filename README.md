@@ -60,4 +60,29 @@
 
 ### Pourquoi l’identifiant peut-il être absent avant la sauvegarde ?
 
+- Parce que l’identifiant est généralement généré automatiquement par la base de données lors de l'insertion.
+
 ### Quel principe de conception est favorisé par la protection des propriétés ?
+
+- Cela favorise l'encapsulation.
+    Les propriétés sont protégées avec private et ne sont pas accessibles directement depuis l'extérieur de la classe. On utilise des méthodes comme les getters et setters pour contrôler leur accès et leur modification.
+
+### Quelle classe doit être responsable de la connexion ?
+
+- La classe Database doit être responsable de la connexion à la base de données.
+    Elle permet de centraliser la création et la configuration de la connexion PDO afin d'éviter de répéter le même code dans les autres classes.
+
+### Faut-il créer une nouvelle connexion pour chaque requête SQL ?
+
+- Non, il ne faut pas créer une nouvelle connexion pour chaque requête SQL.
+    Il est préférable de réutiliser la même connexion pendant l'exécution de l'application. Cela évite de créer inutilement plusieurs connexions et permet de centraliser la gestion de la base de données.
+
+### Où placer les identifiants de connexion ?
+
+- Les identifiants de connexion doivent être placés dans un fichier de configuration qui n'est pas versionné, par exemple un fichier .env.
+    Cela permet de ne pas exposer le mot de passe et les autres informations sensibles dans le code source ou sur GitHub.
+
+### Pourquoi utiliser PDO ?
+
+- PDO permet à PHP de communiquer avec une base de données comme PostgreSQL.
+    Il permet également d'utiliser des requêtes préparées, de gérer les erreurs et de sécuriser les requêtes contre les injections SQL.
