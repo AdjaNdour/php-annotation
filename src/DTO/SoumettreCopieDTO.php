@@ -2,16 +2,21 @@
 
 namespace App\DTO;
 
-readonly class SoumettreCopieDTO
-{
-    public \DateTime $dateDepot;
-    public float $noteBrute;
-    public \DateTime $dateLimite;
 
-    public function __construct(\DateTime $dateDepot, float $noteBrute, \DateTime $dateLimite)
+final class SoumettreCopieDTO
+{
+    private function __construct(
+        public readonly float $noteBrute,
+        public readonly \DateTimeImmutable $dateDepot,
+        public readonly \DateTimeImmutable $dateLimite
+    ) {}
+
+    public static function fromArray(array $data): self
     {
-        $this->dateDepot = $dateDepot;
-        $this->noteBrute = $noteBrute;
-        $this->dateLimite = $dateLimite;
+        $noteBrute = Validator::validateFloat($data['noteBrute'] ?? null);
+        $dateDepot = Validator::validateDate($data['dateDepot'] ?? '');
+        $dateLimite = Validator::validateDate($data['dateLimite'] ?? '');
+
+        return new self($noteBrute, $dateDepot, $dateLimite);
     }
 }
