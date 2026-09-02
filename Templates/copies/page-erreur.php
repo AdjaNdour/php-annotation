@@ -13,24 +13,12 @@
     <h1>Erreur</h1>
 
     <?php if (isset($message)): ?>
-
-        <p>
-            <?= $message ?>
-        </p>
-
+        <p> <?= $message ?></p>
     <?php else: ?>
-
-        <p>
-            Une erreur est survenue.
-        </p>
-
+        <p> Une erreur est survenue.</p>
     <?php endif; ?>
-
     <br>
-
-    <a href="/copies">
-        Retour à la liste
-    </a>
+    <a href="/copies">Retour à la liste</a>
 
 </body>
 

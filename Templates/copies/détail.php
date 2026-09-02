@@ -20,32 +20,32 @@ $copie = $data['copie'] ?? null;
 
         <p>
             <strong>ID :</strong>
-            <?= $copie->getId() ?>
+            <?= htmlspecialchars($copie->getId()) ?>
         </p>
 
         <p>
             <strong>Date de dépôt :</strong>
-            <?= $copie->getDateDepot() ?>
+            <?= htmlspecialchars($copie->getDateDepot()) ?>
         </p>
 
         <p>
             <strong>Note brute :</strong>
-            <?= $copie->getNoteBrute() ?>
+            <?= htmlspecialchars($copie->getNoteBrute()) ?>
         </p>
 
         <p>
             <strong>Note finale :</strong>
-            <?= $copie->getNoteFinale() ?>
+            <?= htmlspecialchars($copie->getNoteFinale()) ?>
         </p>
 
         <p>
             <strong>Pénalité appliquée :</strong>
-            <?= $copie->getPenaliteAppliquee() ?>
+            <?= htmlspecialchars($copie->getPenaliteAppliquee()) ?>
         </p>
 
         <p>
             <strong>Date limite :</strong>
-            <?= $copie->getDateLimite() ?>
+            <?= htmlspecialchars($copie->getDateLimite()) ?>
         </p>
 
     </div>

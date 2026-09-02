@@ -16,36 +16,21 @@
 
         <div>
             <label for="dateDepot">Date de dépôt :</label>
-            <input
-                type="datetime-local"
-                id="dateDepot"
-                name="dateDepot"
-                required>
+            <input type="datetime-local" id="dateDepot" name="dateDepot" required>
         </div>
 
         <br>
 
         <div>
             <label for="noteBrute">Note brute :</label>
-            <input
-                type="number"
-                id="noteBrute"
-                name="noteBrute"
-                min="0"
-                max="20"
-                step="0.01"
-                required>
+            <input type="number" id="noteBrute" name="noteBrute" min="0" max="20" step="0.01" required>
         </div>
 
         <br>
 
         <div>
             <label for="dateLimite">Date limite :</label>
-            <input
-                type="datetime-local"
-                id="dateLimite"
-                name="dateLimite"
-                required>
+            <input type="datetime-local" id="dateLimite" name="dateLimite" required>
         </div>
 
         <br>

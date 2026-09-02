@@ -1,5 +1,5 @@
 <?php
-    $copies = $data['copies'] ?? [];
+$copies = $data['copies'] ?? [];
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des copies</title>
-        <link rel="stylesheet" href="/assets/css/liste.css">
+    <link rel="stylesheet" href="/assets/css/liste.css">
 </head>
 
 <body>
@@ -47,35 +47,13 @@
 
                     <tr>
 
-                        <td>
-                            <?= $copie->getId() ?>
-                        </td>
-
-                        <td>
-                            <?= $copie->getDateDepot() ?>
-                        </td>
-
-                        <td>
-                            <?= $copie->getNoteBrute() ?>
-                        </td>
-
-                        <td>
-                            <?= $copie->getNoteFinale() ?>
-                        </td>
-
-                        <td>
-                            <?= $copie->getPenaliteAppliquee() ?>
-                        </td>
-
-                        <td>
-                            <?= $copie->getDateLimite() ?>
-                        </td>
-
-                        <td>
-                            <a href="/copies/<?= $copie->getId() ?>">
-                                Détail
-                            </a>
-                        </td>
+                        <td><?= htmlspecialchars($copie->getId()) ?></td>
+                        <td><?= htmlspecialchars($copie->getDateDepot()) ?></td>
+                        <td><?= htmlspecialchars($copie->getNoteBrute()) ?></td>
+                        <td><?= htmlspecialchars($copie->getNoteFinale()) ?></td>
+                        <td><?= htmlspecialchars($copie->getPenaliteAppliquee()) ?></td>
+                        <td><?= htmlspecialchars($copie->getDateLimite()) ?></td>
+                        <td><a href="/copies/<?= $copie->getId() ?>"> Détail</a> </td>
 
                     </tr>
 
