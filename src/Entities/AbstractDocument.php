@@ -6,9 +6,9 @@ abstract class AbstractDocument
 {
     protected ?int $id;
 
-    protected \DateTime $dateDepot;
+    protected \DateTimeImmutable $dateDepot;
 
-    protected function __construct(\DateTime $dateDepot, ?int $id = null)
+    protected function __construct(\DateTimeImmutable $dateDepot, ?int $id = null)
     {
         $this->id = $id;
         $this->dateDepot = $dateDepot;
@@ -24,12 +24,12 @@ abstract class AbstractDocument
         $this->id = $id;
     }
 
-    public function getDateDepot(): \DateTime
+    public function getDateDepot(): \DateTimeImmutable
     {
         return $this->dateDepot;
     }
 
-    public function setDateDepot(\DateTime $dateDepot): void
+    public function setDateDepot(\DateTimeImmutable $dateDepot): void
     {
         $this->dateDepot = $dateDepot;
     }
