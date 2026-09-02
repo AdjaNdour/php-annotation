@@ -7,10 +7,10 @@ class CopieExamen extends AbstractDocument
     private float $noteBrute;
     private float $noteFinale;
     private bool $penaliteAppliquee;
-    private \DateTime $dateLimite;
+    private \DateTimeImmutable $dateLimite;
 
 
-    public function __construct(\DateTime $dateDepot, float $noteBrute, bool $penaliteAppliquee, \DateTime $dateLimite, ?int $id = null)
+    public function __construct(\DateTimeImmutable $dateDepot, float $noteBrute, bool $penaliteAppliquee, \DateTimeImmutable $dateLimite, ?int $id = null)
     {
         parent::__construct($dateDepot, $id);
         $this->verifierNoteBrute($noteBrute);
@@ -69,12 +69,12 @@ class CopieExamen extends AbstractDocument
     }
 
     //-----------------------------------------------------------------------------
-    public function getDateLimite(): \DateTime
+    public function getDateLimite(): \DateTimeImmutable
     {
         return $this->dateLimite;
     }
 
-    public function setDateLimite(\DateTime $dateLimite): void
+    public function setDateLimite(\DateTimeImmutable $dateLimite): void
     {
         $this->dateLimite = $dateLimite;
     }
