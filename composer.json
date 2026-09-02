@@ -3,7 +3,15 @@
     "description": "projet annotation",
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "App\\Containers\\": "src/Containers/",
+            "App\\Controllers\\": "src/Controllers/",
+            "App\\Entities\\": "src/Entities/",
+            "App\\Core\\": "src/Core/",
+            "App\\Repositories\\": "src/Repositories/",
+            "App\\Services\\": "src/Services/",
+            "App\\DTO\\": "src/DTO/",
+            "App\\Router\\": "src/Router/"
         }
     },
     "authors": [
@@ -12,5 +20,7 @@
             "email": "adjacourandour4@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "^5.7"
+    }
 }
