@@ -8,7 +8,7 @@ abstract class HelperBase
 
     private ?\PDO $pdo;
 
-    private function __construct(\PDO $pdo)
+    protected function __construct(\PDO $pdo)
     {
         $this->pdo = $pdo ?? Database::connexionDB();
     }
