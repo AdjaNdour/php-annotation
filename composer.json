@@ -11,8 +11,7 @@
             "App\\Repositories\\": "src/Repositories/",
             "App\\Services\\": "src/Services/",
             "App\\DTO\\": "src/DTO/",
-            "App\\Router\\": "src/Router/",
-            "Config\\": "Config/"
+            "App\\Router\\": "src/Router/"
         }
     },
     "authors": [
@@ -21,5 +20,7 @@
             "email": "adjacourandour4@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "^5.7"
+    }
 }
