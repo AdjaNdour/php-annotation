@@ -11,7 +11,8 @@
             "App\\Repositories\\": "src/Repositories/",
             "App\\Services\\": "src/Services/",
             "App\\DTO\\": "src/DTO/",
-            "App\\Router\\": "src/Router/"
+            "App\\Router\\": "src/Router/",
+            "Config\\": "Config/"
         }
     },
     "authors": [
