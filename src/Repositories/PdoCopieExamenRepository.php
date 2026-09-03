@@ -6,7 +6,7 @@ use App\Entities\CopieExamen;
 
 class PdoCopieExamenRepository extends HelperBase implements CopieExamenRepositoryInterface
 {
-   public function __construct(\PDO $pdo )
+    public function __construct(\PDO $pdo)
     {
         parent::__construct($pdo);
     }
@@ -16,14 +16,17 @@ class PdoCopieExamenRepository extends HelperBase implements CopieExamenReposito
         $sql = "INSERT INTO copies_examens (date_creation, note_brute, note_finale, penalite_appliquee, date_limite)
                 VALUES (:date_creation, :note_brute, :note_finale, :penalite_appliquee, :date_limite)";
         $datas = [
-            'date_creation' => $copie->getDateDepot(),
+            'date_creation' => $copie->getDateDepot()->format('Y-m-d H:i:s'),
             'note_brute' => $copie->getNoteBrute(),
             'note_finale' => $copie->getNoteFinale(),
-            'penalite_appliquee' => $copie->getPenaliteAppliquee(),
-            'date_limite' => $copie->getDateLimite(),
+            'penalite_appliquee' => $copie->getPenaliteAppliquee() ? 'true' : 'false',
+            'date_limite' => $copie->getDateLimite()->format('Y-m-d H:i:s'),
         ];
-        $this->executeUpdate($sql, $datas);
-        $copie->setId($this->getLastId('copies_examens'));
+        $id = $this->executeUpdate($sql, $datas);
+        if ($id) {
+            $copie->setId((int) $id);
+        }
+
         return $copie;
     }
 
@@ -33,11 +36,12 @@ class PdoCopieExamenRepository extends HelperBase implements CopieExamenReposito
         $results = $this->executeQuery($sql, [], false);
         return array_map(function ($copie) {
             return new CopieExamen(
-                $copie['date_creation'],
+                new \DateTimeImmutable($copie['date_creation']),
                 $copie['note_brute'],
                 $copie['note_finale'],
                 $copie['penalite_appliquee'],
-                $copie['date_limite']
+                new \DateTimeImmutable($copie['date_limite']),
+                $copie['id']
             );
         }, $results);
     }
@@ -50,11 +54,12 @@ class PdoCopieExamenRepository extends HelperBase implements CopieExamenReposito
             return null;
         }
         return new CopieExamen(
-            $result['date_creation'],
+            new \DateTimeImmutable($result['date_creation']),
             $result['note_brute'],
             $result['note_finale'],
             $result['penalite_appliquee'],
-            $result['date_limite']
+            new \DateTimeImmutable($result['date_limite']),
+            $result['id']
         );
     }
 }

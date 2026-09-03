@@ -17,8 +17,9 @@ class SoumissionCopieService
     public function soumettre(SoumettreCopieDTO $dto): CopieExamen
     {
         $noteFinale = $this->calculateur->calculerNote($dto->noteBrute, $dto->dateDepot, $dto->dateLimite);
+        $penaliteAppliquee = ($noteFinale < $dto->noteBrute) ? true : false;
 
-        $copie = new CopieExamen($dto->dateDepot, $dto->noteBrute, $noteFinale, $dto->dateLimite);
+        $copie = new CopieExamen($dto->dateDepot, $dto->noteBrute, $noteFinale, $penaliteAppliquee, $dto->dateLimite);
         return $this->repository->save($copie);
     }
 }

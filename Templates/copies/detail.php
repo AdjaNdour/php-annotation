@@ -20,37 +20,37 @@ $copie = $copie ?? null;
     <h1>Détail de la copie</h1>
 
     <div>
+        <?php if ($copie !== null) : ?>
+            <p>
+                <strong>ID :</strong>
+                <?= htmlspecialchars($copie->getId()) ?>
+            </p>
 
-        <p>
-            <strong>ID :</strong>
-            <?= htmlspecialchars($copie->getId()) ?>
-        </p>
+            <p>
+                <strong>Date de dépôt :</strong>
+                <?= htmlspecialchars($copie->getDateDepot()->format('Y-m-d H:i:s')) ?>
+            </p>
 
-        <p>
-            <strong>Date de dépôt :</strong>
-            <?= htmlspecialchars($copie->getDateDepot()) ?>
-        </p>
+            <p>
+                <strong>Note brute :</strong>
+                <?= htmlspecialchars($copie->getNoteBrute()) ?>
+            </p>
 
-        <p>
-            <strong>Note brute :</strong>
-            <?= htmlspecialchars($copie->getNoteBrute()) ?>
-        </p>
+            <p>
+                <strong>Note finale :</strong>
+                <?= htmlspecialchars($copie->getNoteFinale()) ?>
+            </p>
 
-        <p>
-            <strong>Note finale :</strong>
-            <?= htmlspecialchars($copie->getNoteFinale()) ?>
-        </p>
+            <p>
+                <strong>Pénalité appliquée :</strong>
+                <?= htmlspecialchars($copie->getPenaliteAppliquee() ? 'Oui' : 'Non') ?>
+            </p>
 
-        <p>
-            <strong>Pénalité appliquée :</strong>
-            <?= htmlspecialchars($copie->getPenaliteAppliquee()) ?>
-        </p>
-
-        <p>
-            <strong>Date limite :</strong>
-            <?= htmlspecialchars($copie->getDateLimite()) ?>
-        </p>
-
+            <p>
+                <strong>Date limite :</strong>
+                <?= htmlspecialchars($copie->getDateLimite()->format('Y-m-d H:i:s')) ?>
+            </p>
+        <?php endif ?>
     </div>
 
     <br>
