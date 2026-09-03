@@ -1,6 +1,9 @@
 <?php
-$copie = $data['copie'] ?? null;
+
+$copie = $copie ?? null;
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">

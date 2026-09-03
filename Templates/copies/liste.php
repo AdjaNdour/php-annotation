@@ -1,5 +1,5 @@
 <?php
-$copies = $data['copies'] ?? [];
+$copies = $copies ?? [];
 ?>
 
 <!DOCTYPE html>
