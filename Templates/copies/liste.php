@@ -46,13 +46,12 @@ $copies = $copies ?? [];
                 <?php foreach ($copies as $copie): ?>
 
                     <tr>
-
                         <td><?= htmlspecialchars($copie->getId()) ?></td>
-                        <td><?= htmlspecialchars($copie->getDateDepot()) ?></td>
+                        <td><?= htmlspecialchars($copie->getDateDepot()->format('Y-m-d H:i:s')) ?></td>
                         <td><?= htmlspecialchars($copie->getNoteBrute()) ?></td>
                         <td><?= htmlspecialchars($copie->getNoteFinale()) ?></td>
-                        <td><?= htmlspecialchars($copie->getPenaliteAppliquee()) ?></td>
-                        <td><?= htmlspecialchars($copie->getDateLimite()) ?></td>
+                        <td><?= $copie->getPenaliteAppliquee() ? 'Oui' : 'Non' ?></td>
+                        <td><?= htmlspecialchars($copie->getDateLimite()->format('Y-m-d H:i:s')) ?></td>
                         <td><a href="/copies/<?= $copie->getId() ?>"> Détail</a> </td>
 
                     </tr>
